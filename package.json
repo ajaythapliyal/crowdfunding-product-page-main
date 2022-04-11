@@ -1,0 +1,34 @@
+{
+  "name": "crowdfunding-product-page-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Crowdfunding product page coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel './src/*.html'",
+    "build": "rimraf dist & parcel build './src/*.html' --no-source-maps --public-url ./",
+    "clean": "rimraf dist",
+    "deep-clean": "rimraf dist & rimraf .parcel-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajaythapliyal/crowdfunding-product-page-main.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajaythapliyal/crowdfunding-product-page-main/issues"
+  },
+  "homepage": "https://github.com/ajaythapliyal/crowdfunding-product-page-main#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.4.1",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "parcel": "^2.4.1",
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2"
+  }
+}
