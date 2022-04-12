@@ -1,1 +1,53 @@
 @use 'reset';
+@use 'util';
+
+
+$primary-color: hsl(176, 50%, 47%);
+$neutral-color: hsl(0, 0%, 48%);
+
+body{
+    display: grid;
+    grid-template-columns: 1fr minmax(355px, min(50%, 1000px)) 1fr;
+    grid-template-rows: auto 20% auto;
+    min-height: auto;
+}
+
+header{
+    grid-row: 1/3;
+    grid-column: 1/-1;
+}
+
+main{
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.card{
+    background-color: lighten($color: $primary-color, $amount: 100);
+    border-radius: 0.8em 0.8em 0.8em 0.8em;
+}
+
+.title-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo{
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    top: -1.5rem;
+}
+
+.title{
+    text-align: center;
+    width: 75%;
+}
+
+.text1{
+    font-size: util.clamped(1.25rem, 1.86rem);
+    font-family: "Commissioner", sans-serif;
+    font-weight: 700;
+}
+

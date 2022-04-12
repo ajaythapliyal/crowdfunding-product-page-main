@@ -1,0 +1,33 @@
+@use "sass:math";
+
+$maxWidth : 90em;
+$minWidth : 23.43em;
+
+@function lighten($color, $amount) {
+    @return mix(white, $color, $amount);
+}
+  
+  
+@function darken($color, $amount){
+    @return mix(black, $color, $amount);
+}
+
+
+@function clamped($minFs, $maxFs) {
+    $minFsNum : stripUnit($minFs);
+    $maxFsNum : stripUnit($maxFs);
+    $minWidthNum: stripUnit($minWidth);
+    $maxWidthNum: stripUnit($maxWidth); 
+    $slope : math.div(($maxFsNum - $minFsNum),(($maxWidthNum) - ($minWidthNum)));
+    $yAxisIntersection : (($minWidthNum * -1) * $slope) + $minFsNum; 
+    @return clamp($minFs,unquote("#{$yAxisIntersection * 1rem} + #{$slope * 100vw}"),$maxFs);
+}
+
+
+@function stripUnit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return math.div($number, ($number * 0 + 1));
+    }
+  
+    @return $number;
+}
