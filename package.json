@@ -2,12 +2,11 @@
   "name": "crowdfunding-product-page-main",
   "version": "1.0.0",
   "description": "![Design preview for the Crowdfunding product page coding challenge](./design/desktop-preview.jpg)",
-  "main": "index.js",
   "scripts": {
     "start": "parcel './src/*.html'",
     "build": "rimraf dist & parcel build './src/*.html' --no-source-maps --public-url ./",
     "clean": "rimraf dist",
-    "deep-clean": "rimraf dist & rimraf .parcel-cache"
+    "deep-clean": "rimraf dist"
   },
   "repository": {
     "type": "git",

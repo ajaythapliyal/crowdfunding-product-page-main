@@ -1,7 +1,6 @@
 @use "sass:math";
+@use "config";
 
-$maxWidth : 90em;
-$minWidth : 23.43em;
 
 @function lighten($color, $amount) {
     @return mix(white, $color, $amount);
@@ -16,8 +15,8 @@ $minWidth : 23.43em;
 @function clamped($minFs, $maxFs) {
     $minFsNum : stripUnit($minFs);
     $maxFsNum : stripUnit($maxFs);
-    $minWidthNum: stripUnit($minWidth);
-    $maxWidthNum: stripUnit($maxWidth); 
+    $minWidthNum: stripUnit(config.$minWidth);
+    $maxWidthNum: stripUnit(config.$maxWidth); 
     $slope : math.div(($maxFsNum - $minFsNum),(($maxWidthNum) - ($minWidthNum)));
     $yAxisIntersection : (($minWidthNum * -1) * $slope) + $minFsNum; 
     @return clamp($minFs,unquote("#{$yAxisIntersection * 1rem} + #{$slope * 100vw}"),$maxFs);
@@ -30,4 +29,30 @@ $minWidth : 23.43em;
     }
   
     @return $number;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.text1{
+    font-size: clamped(1.25rem, 1.86rem);
+    font-family: "Commissioner", sans-serif;
+    font-weight: 700;
+}
+
+.text2{
+    font-size: clamped(0.9rem, 1rem);
+    font-family: "Commissioner", sans-serif;
+    font-weight: 400;
+    color: config.$neutral-color;
 }

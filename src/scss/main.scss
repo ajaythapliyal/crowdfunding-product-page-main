@@ -1,15 +1,13 @@
 @use 'reset';
 @use 'util';
-
-
-$primary-color: hsl(176, 50%, 47%);
-$neutral-color: hsl(0, 0%, 48%);
+@use 'config';
 
 body{
     display: grid;
     grid-template-columns: 1fr minmax(355px, min(50%, 1000px)) 1fr;
     grid-template-rows: auto 20% auto;
     min-height: auto;
+    background-color: lighten(config.$neutral-color,49);
 }
 
 header{
@@ -23,14 +21,8 @@ main{
 }
 
 .card{
-    background-color: lighten($color: $primary-color, $amount: 100);
+    background-color: lighten(config.$neutral-color, 100);
     border-radius: 0.8em 0.8em 0.8em 0.8em;
-}
-
-.title-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .logo{
@@ -45,9 +37,17 @@ main{
     width: 75%;
 }
 
-.text1{
-    font-size: util.clamped(1.25rem, 1.86rem);
-    font-family: "Commissioner", sans-serif;
-    font-weight: 700;
+.subtitle{
+    margin-top: 1em;
+    text-align: center;
+    width: 90%;
 }
 
+.title-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 93%;
+    margin-top: 1.3em;
+    margin-bottom: 3em;
+}
