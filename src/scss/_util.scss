@@ -5,54 +5,41 @@
 @function lighten($color, $amount) {
     @return mix(white, $color, $amount);
 }
-  
-  
-@function darken($color, $amount){
+
+
+@function darken($color, $amount) {
     @return mix(black, $color, $amount);
 }
 
 
 @function clamped($minFs, $maxFs) {
-    $minFsNum : stripUnit($minFs);
-    $maxFsNum : stripUnit($maxFs);
+    $minFsNum: stripUnit($minFs);
+    $maxFsNum: stripUnit($maxFs);
     $minWidthNum: stripUnit(config.$minWidth);
-    $maxWidthNum: stripUnit(config.$maxWidth); 
-    $slope : math.div(($maxFsNum - $minFsNum),(($maxWidthNum) - ($minWidthNum)));
-    $yAxisIntersection : (($minWidthNum * -1) * $slope) + $minFsNum; 
-    @return clamp($minFs,unquote("#{$yAxisIntersection * 1rem} + #{$slope * 100vw}"),$maxFs);
+    $maxWidthNum: stripUnit(config.$maxWidth);
+    $slope: math.div(($maxFsNum - $minFsNum), (($maxWidthNum) - ($minWidthNum)));
+    $yAxisIntersection: (($minWidthNum * -1) * $slope) + $minFsNum;
+    @return clamp($minFs, unquote("#{$yAxisIntersection * 1rem} + #{$slope * 100vw}"), $maxFs);
 }
 
 
 @function stripUnit($number) {
-    @if type-of($number) == 'number' and not unitless($number) {
-      @return math.div($number, ($number * 0 + 1));
+    @if type-of($number)=='number'and not unitless($number) {
+        @return math.div($number, ($number * 0 + 1));
     }
-  
+
     @return $number;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
-.flex-col{
+.flex-col {
     display: flex;
     flex-direction: column;
 }
 
-.align-center{
+.align-center {
     align-items: center;
-}
-
-.text1{
-    font-size: clamped(1.25rem, 1.86rem);
-    font-family: "Commissioner", sans-serif;
-    font-weight: 700;
-}
-
-.text2{
-    font-size: clamped(0.9rem, 1rem);
-    font-family: "Commissioner", sans-serif;
-    font-weight: 400;
-    color: config.$neutral-color;
 }
