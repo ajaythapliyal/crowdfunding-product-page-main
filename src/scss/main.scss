@@ -48,8 +48,45 @@ main {
     flex-direction: row;
     justify-content: space-between;
     width: 93%;
-    margin-top: 1.3em;
+    margin-top: min(10%, 2.4em);
     margin-bottom: 3em;
+}
+
+.bookmark {
+    border-style: none;
+}
+
+
+@media screen and (min-width: 62em) {
+    .bookmark {
+        border-radius: 2em;
+        height: 4.2em;
+        background-color: #f5f4f4;
+
+        &:hover {
+            filter: opacity(0.3);
+        }
+    }
+
+    .bookmark::after {
+        display: inline-block;
+        position: relative;
+        bottom: 25px;
+        content: 'Bookmark';
+        vertical-align: middle;
+        font-family: config.$font-name;
+        font-weight: 700;
+        font-size: 1.1em;
+        color: config.$neutral-color;
+        margin-left: 0.8em;
+        margin-right: 1.5em;
+    }
+}
+
+@media screen and (max-width: 62em) {
+    .bookmark {
+        background-color: lighten($color: config.$neutral-color, $amount: 100);
+    }
 }
 
 //util classes
