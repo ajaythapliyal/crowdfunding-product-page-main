@@ -24,8 +24,10 @@
 
 <body>
   <header>
-    <img src="./assets/images/image-hero-mobile.jpg" srcset="./assets/images/image-hero-desktop.jpg 1440w,
-    ./assets/images/image-hero-mobile.jpg 750w">
+    <picture>
+      <source srcset="./assets/images/image-hero-desktop.jpg" media="(min-width: 750px)" width="100%">
+      <img src="./assets/images/image-hero-mobile.jpg" width="100%">
+    </picture>
   </header>
   <main>
     <div class="card flex-col align-center">
