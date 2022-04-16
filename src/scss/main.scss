@@ -24,6 +24,8 @@ main {
 .card {
     background-color: lighten(config.$neutral-color, 100);
     border-radius: 0.8em 0.8em 0.8em 0.8em;
+    @extend .flex-col;
+    @extend .align-center
 }
 
 .logo {
@@ -55,6 +57,29 @@ main {
 
 .bookmark {
     border-style: none;
+}
+
+.progress-info {
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+    margin-top: min(10%, 3.5em);
+    margin-bottom: min(10%, 3.5em);
+}
+
+.progress-info>div {
+    flex: 1 0 max(33%, 250px);
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.progress-info p:nth-child(2n) {
+    margin-top: 0.5em;
+}
+
+.progress-num {
+    @extend %font-300;
+    font-size: 1.8rem;
 }
 
 
@@ -132,4 +157,8 @@ main {
 
 .btn1:hover {
     background-color: darken($color: config.$primary-color, $amount: 15)
+}
+
+.card-margin-top {
+    margin-top: 1.8em;
 }
