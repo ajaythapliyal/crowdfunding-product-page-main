@@ -24,8 +24,6 @@ main {
 .card {
     background-color: lighten(config.$neutral-color, 100);
     border-radius: 0.8em 0.8em 0.8em 0.8em;
-    @extend .flex-col;
-    @extend .align-center
 }
 
 .logo {
@@ -82,6 +80,13 @@ main {
     font-size: 1.8rem;
 }
 
+.about>* {
+    width: 93%;
+}
+
+.about>p:nth-child(-n+3) {
+    margin-top: 2em;
+}
 
 @media screen and (min-width: 62em) {
     .bookmark {
@@ -141,6 +146,16 @@ main {
     font-size: util.clamped(0.9rem, 1rem);
     @extend %font-100;
     color: config.$neutral-color;
+}
+
+.text3 {
+    @extend %font-300;
+    font-size: 1.2em;
+}
+
+.text2-desc {
+    @extend .text2;
+    line-height: util.clamped(1.5em, 1.8em);
 }
 
 .btn1 {
