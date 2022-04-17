@@ -5,7 +5,7 @@
 body {
     display: grid;
     grid-template-columns: 1fr minmax(355px, min(50%, 1000px)) 1fr;
-    grid-template-rows: auto 20% auto;
+    grid-template-rows: auto util.clamped(3em, 7em) auto;
     min-height: auto;
     background-color: lighten(config.$neutral-color, 49);
 }
@@ -83,8 +83,33 @@ main {
     font-size: 1.8rem;
 }
 
+.about {
+    padding-bottom: 2em;
+}
+
 .about>*:nth-child(-n+4) {
     margin-top: 2em;
+}
+
+.pledge-card {
+    padding-top: min(5%, 1.8em);
+    padding-bottom: min(5%, 1.8em);
+    @extend .card;
+    @extend .thin-border
+}
+
+.pledge-card>*:not(:first-child) {
+    margin-top: 1.5em;
+}
+
+.pledge-card-inline-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.pledge-card-inline-container>* {
+    min-width: 150px;
 }
 
 @media screen and (min-width: 62em) {
@@ -152,9 +177,20 @@ main {
     font-size: 1.2em;
 }
 
-.text2-desc {
+.text4 {
     @extend .text2;
     line-height: util.clamped(1.5em, 1.8em);
+}
+
+.text5 {
+    @extend %font-300;
+    font-size: util.clamped(0.9rem, 1.1rem);
+}
+
+.text6 {
+    color: config.$primary-color;
+    @extend %font-200;
+    font-size: 1rem;
 }
 
 .btn1 {
