@@ -24,6 +24,12 @@ main {
 .card {
     background-color: lighten(config.$neutral-color, 100);
     border-radius: 0.8em 0.8em 0.8em 0.8em;
+    @extend .flex-col;
+    @extend .align-center;
+}
+
+.card>* {
+    width: 90%;
 }
 
 .logo {
@@ -41,14 +47,12 @@ main {
 .subtitle {
     margin-top: 1em;
     text-align: center;
-    width: 90%;
 }
 
 .title-actions {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 93%;
     margin-top: min(10%, 2.4em);
     margin-bottom: 3em;
 }
@@ -59,7 +63,6 @@ main {
 
 .progress-info {
     display: flex;
-    width: 90%;
     flex-wrap: wrap;
     margin-top: min(10%, 3.5em);
     margin-bottom: min(10%, 3.5em);
@@ -80,11 +83,7 @@ main {
     font-size: 1.8rem;
 }
 
-.about>* {
-    width: 93%;
-}
-
-.about>p:nth-child(-n+3) {
+.about>*:nth-child(-n+4) {
     margin-top: 2em;
 }
 
@@ -176,4 +175,10 @@ main {
 
 .card-margin-top {
     margin-top: 1.8em;
+}
+
+.thin-border {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lighten(config.$neutral-color, 40);
 }
