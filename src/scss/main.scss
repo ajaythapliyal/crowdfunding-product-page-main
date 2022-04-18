@@ -124,6 +124,27 @@ main {
     margin-top: 0.5em;
 }
 
+.modal-container {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.modal {
+    background-color: lighten(config.$neutral-color, 100);
+    width: 50%;
+    max-width: 1000px;
+    min-width: 355px;
+    padding-top: min(5%, 1.8em);
+    padding-bottom: min(5%, 1.8em);
+    margin-top: min(25%, 14em);
+}
+
 @media screen and (min-width: 62em) {
     .bookmark {
         border-radius: 2em;
@@ -234,4 +255,9 @@ main {
 button.disabled {
     background-color: darken(config.$neutral-color, 100);
     pointer-events: none;
+}
+
+.small {
+    height: 1em;
+    width: 1em;
 }
