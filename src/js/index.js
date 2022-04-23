@@ -2,6 +2,7 @@ function showModal() {
     const modalContainer = document.querySelector('.modal-container');
     document.body.style.overflow = 'hidden';
     modalContainer.style.display = 'block';
+    modalContainer.scrollTop = '0px';
     event.stopPropagation();
 }
 
