@@ -147,6 +147,10 @@ main {
     margin-top: min(25%, 14em);
 }
 
+.modal label {
+    min-width: 180px;
+}
+
 .modal>*:nth-child(n+3):nth-child(-n+4) {
     margin-top: 1.2em;
 }
@@ -318,7 +322,7 @@ button.disabled {
 }
 
 .margin-left-small {
-    margin-left: 0.5em;
+    margin-left: 2.4em;
 }
 
 .active {
