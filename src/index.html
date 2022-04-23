@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Crowdfunding product page</title>
   <link rel="stylesheet" href="./scss/main.scss">
+  <script src="./js/index.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
       <h1 class="title text1">Mastercraft Bamboo Monitor Riser</h1>
       <p class="subtitle text2">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
       <div class="title-actions">
-        <button class="btn1">Back this project</button>
+        <button class="btn1" onclick="showModal()">Back this project</button>
         <button class="bookmark">
           <img src="./assets/images/icon-bookmark.svg" alt="">
         </button>
@@ -67,7 +68,7 @@
           you’ll be added to a special Backer member list.</p>
         <div class="pledge-card-inline-container align-center">
           <p class="text1">101 <span class="text2 vertical-align-middle">left</span></p>
-          <button class="btn1">Select Reward</button>
+          <button class="btn1" onclick="showModal()">Select Reward</button>
         </div>
       </div>
       <div class="pledge-card card-margin-top">
@@ -80,7 +81,7 @@
           member list. Shipping is included.</p>
         <div class="pledge-card-inline-container align-center">
           <p class="text1">64 <span class="text2 vertical-align-middle">left</span></p>
-          <button class="btn1">Select Reward</button>
+          <button class="btn1" onclick="showModal()">Select Reward</button>
         </div>
       </div>
       <div class="pledge-card disabled card-margin-top">
@@ -101,7 +102,8 @@
   <div class="modal-container">
     <div class="flex justify-center">
       <div class="modal card">
-        <div class="flex justify-end"><img class="small" src="./assets/images/icon-close-modal.svg"></div>
+        <div class="flex justify-end"><img class="small" onclick="hideModal()"
+            src="./assets/images/icon-close-modal.svg"></div>
         <p class="text3">Back this project</p>
         <p class="text2">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
         <div class="pledge-card card">
