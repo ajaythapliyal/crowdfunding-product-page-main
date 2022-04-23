@@ -320,3 +320,7 @@ button.disabled {
 .margin-left-small {
     margin-left: 0.5em;
 }
+
+.active {
+    border-color: config.$primary-color;
+}
