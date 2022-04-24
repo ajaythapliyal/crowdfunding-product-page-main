@@ -188,6 +188,18 @@ main {
     margin-left: 0.5em;
 }
 
+.pledge-input {
+    border-top: 1px solid lighten(config.$neutral-color, 40);
+    width: 100%;
+    // display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.pledge-input>* {
+    width: 90%;
+}
+
 @media screen and (min-width: 62em) {
     .bookmark {
         border-radius: 2em;
@@ -216,10 +228,6 @@ main {
     .item-stat-bottom {
         display: none;
     }
-
-    // .item-stat {
-    //     display: block;
-    // }
 }
 
 @media screen and (max-width: 62em) {
@@ -297,8 +305,35 @@ main {
     @extend %font-200
 }
 
+.btn2 {
+    padding: 0 2em 0 2em;
+    height: 4em;
+    border-radius: 2em;
+    font-size: 0.9em;
+    border-style: none;
+    cursor: pointer;
+    background-color: config.$primary-color;
+    color: lighten(config.$neutral-color, 100);
+    @extend %font-200
+}
+
 .btn1:hover {
     background-color: darken($color: config.$primary-color, $amount: 15)
+}
+
+.input1 {
+    height: 4em;
+    border-radius: 2em;
+    font-size: 0.9em;
+    border: 1px solid lighten(config.$neutral-color, 20);
+    cursor: pointer;
+    width: 120px;
+    outline: none;
+    text-align: center;
+
+    &:focus {
+        border-color: config.$primary-color;
+    }
 }
 
 .card-margin-top {

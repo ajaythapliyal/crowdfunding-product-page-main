@@ -23,9 +23,11 @@ function showPledgeInput(element) {
         if (pledgeCard == element) {
             pledgeCard.classList.add('active');
             pledgeCard.querySelector('input').checked = true
+            pledgeCard.querySelector('.pledge-input').style.display = 'flex';
         } else {
             pledgeCard.classList.remove('active');
-            pledgeCard.querySelector('input').checked = false
+            pledgeCard.querySelector('input').checked = false;
+            pledgeCard.querySelector('.pledge-input').style.display = 'none';
         }
     })
 }
