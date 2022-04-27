@@ -363,3 +363,7 @@ button.disabled {
 .active {
     border-color: config.$primary-color;
 }
+
+.error{
+    border-color: red;
+}

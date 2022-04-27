@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Crowdfunding product page</title>
   <link rel="stylesheet" href="./scss/main.scss">
-  <script src="./js/index.js"></script>
+  <script defer src="./js/index.js"></script>
 </head>
 
 <body>
@@ -35,11 +35,11 @@
     <div class="card card-margin-top">
       <div class="progress-info">
         <div>
-          <p class="progress-num">-</p>
+          <p class="progress-num" id="funding-info">-</p>
           <p class="text2">of $100,000 backed</p>
         </div>
         <div>
-          <p class="progress-num">-</p>
+          <p class="progress-num" id="backers-info">-</p>
           <p class="text2"> total backers</p>
         </div>
         <div>
@@ -67,8 +67,8 @@
           campaign, and
           you’ll be added to a special Backer member list.</p>
         <div class="pledge-card-inline-container align-center">
-          <p class="text1">-<span class="text2 vertical-align-middle">left</span></p>
-          <button class="btn1" onclick="showModal()">Select Reward</button>
+          <p class="text1 bamboo-qty">101<span class="text2 vertical-align-middle">left</span></p>
+          <button class="btn1" onclick="showModal('bambooPledgeCard')">Select Reward</button>
         </div>
       </div>
       <div class="pledge-card card-margin-top">
@@ -80,11 +80,11 @@
           Backer
           member list. Shipping is included.</p>
         <div class="pledge-card-inline-container align-center">
-          <p class="text1">- <span class="text2 vertical-align-middle">left</span></p>
-          <button class="btn1" onclick="showModal()">Select Reward</button>
+          <p class="text1 black-qty">- <span class="text2 vertical-align-middle">left</span></p>
+          <button class="btn1" onclick="showModal('blackPledgeCard')">Select Reward</button>
         </div>
       </div>
-      <div class="pledge-card disabled card-margin-top">
+      <div class="pledge-card card-margin-top">
         <div class="pledge-card-inline-container align-items-baseline">
           <p class="text5">Mahogany Special Edition</p>
           <p class="text6 pledge-label">Pledge $200 or more</p>
@@ -93,7 +93,7 @@
           be added
           to our Backer member list. Shipping is included.</p>
         <div class="pledge-card-inline-container align-center">
-          <p class="text1">- <span class="text2 vertical-align-middle">left</span></p>
+          <p class="text1 mahogany-qty">- <span class="text2 vertical-align-middle">left</span></p>
           <button class="btn1 disabled">Out of stock</button>
         </div>
       </div>
@@ -106,7 +106,7 @@
             src="./assets/images/icon-close-modal.svg"></div>
         <p class="text3">Back this project</p>
         <p class="text2">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
-        <div class="pledge-card card" onclick="showPledgeInput(this)">
+        <div class="pledge-card card" id="noPledgeCard" onclick="showPledgeInput(this)">
           <div class="custom-radio flex">
             <input class="text6" type="radio" name="pledge">
             <label class="text5">Pledge with no reward</label>
@@ -115,75 +115,75 @@
             you will be signed up to receive product updates via email.</p>
           <div class="pledge-input">
             <div class="flex justify-end">
-              <button class="card-margin-top btn2" onclick="project()">Continue</button>
+              <button class="card-margin-top btn2" onclick="backProject()">Continue</button>
             </div>
           </div>
         </div>
-        <div class="pledge-card card card-margin-top" onclick="showPledgeInput(this)">
+        <div class="pledge-card card card-margin-top" id="bambooPledgeCard" onclick="showPledgeInput(this)">
           <div class="custom-radio pledge-option pledge-card-inline-container">
             <div class="flex flex-wrap">
               <input class="text6" type="radio" name="pledge">
               <label class="text5">Bamboo</label>
               <span class="text6 margin-left-small">Pledge $25 or more</span>
             </div>
-            <p class="text3 item-stat">- <span class="text2 margin-left-small">left</span></p>
+            <p class="text3 item-stat bamboo-qty">- <span class="text2 margin-left-small">left</span></p>
           </div>
           <p class="text4">You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional
             campaign, and
             you’ll be added to a special Backer member list.</p>
-          <p class="text3 item-stat item-stat-bottom">101 <span class="text2 margin-left-small">left</span></p>
+          <p class="text3 item-stat item-stat-bottom bamboo-qty">101 <span class="text2 margin-left-small">left</span></p>
           <div class="pledge-input">
             <div class="flex space-between align-items-baseline flex-wrap">
               <p class="text2 card-margin-top">Enter your pledge</p>
               <div class="card-margin-top">
-                <input class="input1" type="number">
-                <button class="btn2">Continue</button>
+                <input class="input1" id="bamboo-input" type="number">
+                <button class="btn2" onclick="backProject('1', document.getElementById('bamboo-input').value, this)">Continue</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="pledge-card card card-margin-top" onclick="showPledgeInput(this)">
+        <div class="pledge-card card card-margin-top" id="blackPledgeCard" onclick="showPledgeInput(this)">
           <div class="custom-radio pledge-option pledge-card-inline-container">
             <div class="flex flex-wrap">
               <input class="text6" type="radio" name="pledge">
               <label class="text5">Black Edition Stand</label>
               <span class="text6 margin-left-small">Pledge $75 or more</span>
             </div>
-            <p class="text3 item-stat">- <span class="text2 margin-left-small">left</span></p>
+            <p class="text3 item-stat black-qty">- <span class="text2 margin-left-small">left</span></p>
           </div>
           <p class="text4">You get a Black Special Edition computer stand and a personal thank you. You’ll be added to
             our Backer
             member list. Shipping is included.</p>
-          <p class="text3 item-stat item-stat-bottom">- <span class="text2 margin-left-small">left</span></p>
+          <p class="text3 item-stat item-stat-bottom black-qty">- <span class="text2 margin-left-small">left</span></p>
           <div class="pledge-input">
             <div class="flex space-between align-items-baseline flex-wrap">
               <p class="text2 card-margin-top">Enter your pledge</p>
               <div class="card-margin-top">
-                <input class="input1" type="number">
-                <button class="btn2">Continue</button>
+                <input class="input1" type="number" id="black-input">
+                <button class="btn2" onclick="backProject('2', document.getElementById('black-input').value, this)">Continue</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="pledge-card card card-margin-top" onclick="showPledgeInput(this)">
+        <div class="pledge-card card card-margin-top" id="mahoganyPledgeCard" onclick="showPledgeInput(this)">
           <div class="custom-radio pledge-option pledge-card-inline-container">
             <div class="flex flex-wrap">
               <input class="text6" type="radio" name="pledge">
               <label class="text5">Mahogany Special Edition</label>
               <span class="text6 margin-left-small">Pledge $200 or more</span>
             </div>
-            <p class="text3 item-stat">- <span class="text2 margin-left-small">left</span></p>
+            <p class="text3 item-stat mahogany-qty">- <span class="text2 margin-left-small">left</span></p>
           </div>
           <p class="text4">You get a Black Special Edition computer stand and a personal thank you. You’ll be added to
             our Backer
             member list. Shipping is included.</p>
-          <p class="text3 item-stat item-stat-bottom">- <span class="text2 margin-left-small">left</span></p>
+          <p class="text3 item-stat item-stat-bottom mahogany-qty">- <span class="text2 margin-left-small">left</span></p>
           <div class="pledge-input">
             <div class="flex space-between align-items-baseline flex-wrap">
               <p class="text2 card-margin-top">Enter your pledge</p>
               <div class="card-margin-top">
-                <input class="input1" type="number">
-                <button class="btn2">Continue</button>
+                <input class="input1" type="number" id="mahogany-input">
+                <button class="btn2" onclick="backProject('3', document.getElementById('mahogany-input').value, this)">Continue</button>
               </div>
             </div>
           </div>
