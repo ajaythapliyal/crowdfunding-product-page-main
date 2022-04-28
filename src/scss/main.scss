@@ -65,7 +65,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     margin-top: min(10%, 3.5em);
-    margin-bottom: min(10%, 3.5em);
+    
 }
 
 .progress-info>div {
@@ -81,6 +81,13 @@ main {
 .progress-num {
     @extend %font-300;
     font-size: 1.8rem;
+}
+
+.progress-bar{
+    background: linear-gradient(to right, config.$primary-color 50%, lighten(config.$neutral-color, 40) 50%);
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: min(10%, 3.5em);
 }
 
 .about {
