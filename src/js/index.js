@@ -2,7 +2,8 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
-
+const modalContainer = document.getElementById('pledge-modal-container')
+const thankModalContainer = document.getElementById('thank-modal-container')
 const fundingNode = document.getElementById('funding-info')
 const backersNode = document.getElementById('backers-info')
 const bambooQtyNodes = document.getElementsByClassName('bamboo-qty')
@@ -19,7 +20,6 @@ const backersInfo = document.getElementById('backers-info')
 const fundingInfo = document.getElementById('funding-info')
 
 function showModal(cardId) {
-    const modalContainer = document.querySelector('.modal-container')
     document.body.style.overflow = 'hidden'
     modalContainer.style.display = 'block'
     modalContainer.scrollTop = '0px'
@@ -32,7 +32,6 @@ function showModal(cardId) {
 }
 
 function hideModal() {
-    const modalContainer = document.querySelector('.modal-container')
     const pledgeCards = document.querySelectorAll('.modal .pledge-card')
     pledgeCards.forEach((pledgeCard) => {
         pledgeCard.classList.remove('active')
@@ -64,6 +63,10 @@ function showPledgeInput(element) {
             pledgeInput.style.display = 'none'
         }
     })
+}
+
+function thankYou() {
+    thankModalContainer.style.display = 'none'
 }
 
 document.addEventListener('click', (event) => {
@@ -122,7 +125,9 @@ const backProject = new Proxy(back, {
     apply(target, that, args) {
         const response = target(...args)
         if (response) {
-            console.log('validation passed')
+            modalContainer.style.display = 'none'
+            thankModalContainer.style.display = 'block'
+            document.body.style.overflow = 'auto'
         } else {
             ;[...args[2].parentNode.childNodes]
                 .filter((node) => node.id)

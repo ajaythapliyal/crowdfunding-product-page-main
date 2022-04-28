@@ -99,7 +99,7 @@
       </div>
     </div>
   </main>
-  <div class="modal-container">
+  <div class="modal-container" id="pledge-modal-container">
     <div class="flex justify-center">
       <div class="modal card">
         <div class="flex justify-end"><img class="small" onclick="hideModal()"
@@ -188,6 +188,17 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div id="thank-modal-container">
+    <div class="flex justify-center">
+      <div id="thank-modal-body" class=" pledge-card card">
+        <div class="flex justify-center"><img src="./assets/images/icon-check.svg"></div>
+        <p class="text1 text-align-center">Thanks for your support!</p>
+        <p class="text4 thank-you-desc">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+          an email once our campaign is completed.</p>
+          <div class="flex justify-center"><button class="btn2" onclick="thankYou()">Got it!</button></div>
       </div>
     </div>
   </div>

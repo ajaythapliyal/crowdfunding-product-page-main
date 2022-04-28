@@ -200,6 +200,30 @@ main {
     width: 90%;
 }
 
+#thank-modal-container{
+    display: none;
+    position: fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#thank-modal-container > div:first-child{
+    padding-top: min(30%, 330px);
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#thank-modal-body{
+    background-color: lighten($color: config.$neutral-color, $amount: 100);
+}
+
+.thank-you-desc{
+    text-align: center;
+    max-inline-size: 48ch;
+}
+
 @media screen and (min-width: 62em) {
     .bookmark {
         border-radius: 2em;
