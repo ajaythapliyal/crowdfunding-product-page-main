@@ -18,6 +18,7 @@ const blackInput = document.getElementById('black-input')
 const mahoganyInput = document.getElementById('mahogany-input')
 const backersInfo = document.getElementById('backers-info')
 const fundingInfo = document.getElementById('funding-info')
+const progressbar = document.querySelector('.progress-bar')
 
 function showModal(cardId) {
     document.body.style.overflow = 'hidden'
@@ -94,6 +95,13 @@ function refreshFunding() {
     fundingInfo.innerHTML = _store.fundingMet
 }
 
+function refreshProgressbar() {
+    const percent = (_store.fundingMet / _store.fundingGoal) * 100
+    progressbar.style.background = `linear-gradient(to right, #3cb4ac ${percent}%, #e0e0e0 ${
+        100 - percent
+    }%)`
+}
+
 const store = new Proxy(_store, {
     set(obj, prop, val) {
         obj[prop] = val
@@ -101,6 +109,7 @@ const store = new Proxy(_store, {
             refreshBackers()
         } else if (prop === 'fundingMet') {
             refreshFunding()
+            refreshProgressbar()
         }
     },
 })
@@ -137,8 +146,9 @@ const backProject = new Proxy(back, {
     },
 })
 
-fundingNode.innerHTML = store.fundingMet
-backersNode.innerHTML = store.backers
+refreshFunding()
+refreshBackers()
+refreshProgressbar()
 
 for (let index = 0; index < bambooQtyNodes.length; index += 1) {
     bambooQtyNodes[index].childNodes[0].textContent = store.products[1].qty
