@@ -17,10 +17,6 @@ Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size.
 
-### Screenshot
-
-![](./screenshot.jpg)
-
 ### Links
 
 - Live Site URL: https://crowdfunding-product-page-main-one.vercel.app/
